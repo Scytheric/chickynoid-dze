@@ -90,7 +90,7 @@ end
 
 function ProjectileSniper:DoClientBulletCheck(_bulletRecord, old, new)
     local ray = RaycastParams.new()
-    ray.FilterType = Enum.RaycastFilterType.Whitelist
+    ray.FilterType = Enum.RaycastFilterType.Include
     ray.FilterDescendantsInstances = { game.Workspace.GameArea }
     local vec = (new-old)
     local results = game.Workspace:Raycast(old, vec, ray)

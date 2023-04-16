@@ -1,3 +1,4 @@
+local RunService = game:GetService("RunService")
 local Root = script.Parent.Parent
 local Vendor = Root.Vendor
 
@@ -289,7 +290,7 @@ function module:GetRaytraceInstancePoints(instance, cframe)
 		meshCopy.CanQuery = true
 				
 		local raycastParam = RaycastParams.new()
-		raycastParam.FilterType = Enum.RaycastFilterType.Whitelist
+		raycastParam.FilterType = Enum.RaycastFilterType.Include
 		raycastParam.FilterDescendantsInstances = { meshCopy }
 			
 		for x=-0.5, 0.5, step do
@@ -400,7 +401,7 @@ function module:GetRaytraceInstancePoints(instance, cframe)
 		table.insert(finals, p)	
 	end
 
-	if (false and game["Run Service"]:IsClient()) then
+	if (false and RunService:IsClient()) then
 		for key,point in pairs(finals) do
 
 			local debugInstance = Instance.new("Part")
@@ -453,7 +454,7 @@ function module:GetPlanesForInstanceMeshPart(instance, playerSize, cframe, baseP
 		end
 	end
 
-	if showDebugParentPart ~= nil and game["Run Service"]:IsClient()  then
+	if showDebugParentPart ~= nil and RunService:IsClient()  then
 		--self:VisualizeTriangles(r, Vector3.zero)
 	end
 

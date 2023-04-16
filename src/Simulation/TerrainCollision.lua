@@ -377,7 +377,7 @@ function module:PreprocessTerrain()
 
     local rayParams = RaycastParams.new()
     rayParams.FilterDescendantsInstances = { game.Workspace.Terrain}
-    rayParams.FilterType = Enum.RaycastFilterType.Whitelist
+    rayParams.FilterType = Enum.RaycastFilterType.Include
 
     local counter = 0
     coroutine.wrap(function()
@@ -396,7 +396,7 @@ function module:PreprocessTerrain()
                 if (counter >1000) then
                     counter = 0
                     print(x,z)
-                    wait()
+                    task.wait()
                 end
             end
         end

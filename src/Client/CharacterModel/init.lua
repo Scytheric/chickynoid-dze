@@ -96,7 +96,7 @@ function CharacterModel:CreateModel()
 						userId = string.sub(userId, 2, string.len(userId)) --drop the -
 					end
 
-					local description = game.Players:GetHumanoidDescriptionFromUserId(userId)
+					local description = game.Players:GetHumanoidDescriptionFromUserId(tonumber(userId))
 					srcModel.Humanoid:ApplyDescription(description)
 
 				end)

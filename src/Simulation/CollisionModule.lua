@@ -848,7 +848,7 @@ function module:MakeWorld(folder, playerSize)
 		local total = #list
 		
 		local lastTime = tick()
-		for counter = 1, total do		
+		for counter = 1, total do
 			local instance = list[counter]
 
 			if (instance:IsA("BasePart") and not instance:IsA("Terrain") and instance.CanCollide == true) then		
@@ -857,7 +857,7 @@ function module:MakeWorld(folder, playerSize)
 				local timeTaken = tick()- begin
 				if (instance:IsA("MeshPart")) then
 					meshTime += timeTaken
-				end				
+				end
 			end
 		
             local maxTime = 0.2
@@ -865,7 +865,7 @@ function module:MakeWorld(folder, playerSize)
             if (tick() - lastTime > maxTime) then
                 lastTime = tick()
       
-				wait()	
+				task.wait()
 		
                 local progress = counter/total;
                 module.loadProgress = progress;
@@ -878,7 +878,7 @@ function module:MakeWorld(folder, playerSize)
 		print("Collision processing: 100%")
 		self.processing = false
 		
-		if (game["Run Service"]:IsServer()) then
+		if (RunService:IsServer()) then
 			print("Server Time Taken: ", math.floor(tick() - startTime), "seconds")
 			
 		else

@@ -141,7 +141,7 @@ function module:GetAimPoint()
     local ray = game.Workspace.CurrentCamera:ScreenPointToRay(mouse.X, mouse.Y)
 
     local raycastParams = RaycastParams.new()
-    raycastParams.FilterType = Enum.RaycastFilterType.Whitelist
+    raycastParams.FilterType = Enum.RaycastFilterType.Include
 
     local whiteList = { game.Workspace.Terrain }
     local collisionRoot = self.client:GetCollisionRoot()
